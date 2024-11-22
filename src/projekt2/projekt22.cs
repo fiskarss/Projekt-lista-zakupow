@@ -106,9 +106,10 @@ namespace Projekt
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Red; 
                         Console.WriteLine("Nie stać Cię.");
                         Console.ResetColor();
+                    }
                 }
                 else
                 {
@@ -144,6 +145,7 @@ namespace Projekt
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Błędna wartość, wybierz opcję z zakresu 1-6.");
                         Console.ResetColor();
+                    }
                 } while (true);
 
                 switch (opcja)
