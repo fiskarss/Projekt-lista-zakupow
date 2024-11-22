@@ -72,24 +72,36 @@ namespace Projekt
                 products[i] = product;
             }
 
-            
+
             Console.WriteLine("\nRACHUNEK:");
             double sumPrice = 0;
+
+            // Table header
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("{0,-5} {1,-20} {2,-10} {3,-10} {4,-10}", "Ilość", "Produkt", "Cena Jedn.", "Razem", "Suma");
+            Console.WriteLine(new string('-', 60));
+            Console.WriteLine("| {0,-5} | {1,-20} | {2,-10} | {3,-10} |", "Ilość", "Produkt", "Cena Jedn.", "Razem");
+            Console.WriteLine(new string('-', 60));
 
             foreach (var product in products)
             {
                 double totalPrice = product.Price * product.Count;
-                Console.WriteLine("{0,-5} {1,-20} {2,-10:C} {3,-10:C} {4,-10:C}",
-                    product.Count, product.Name, product.Price, totalPrice, totalPrice);
+
+                // Table row for each product
+                Console.WriteLine("| {0,-5} | {1,-20} | {2,-10:C} | {3,-10:C} |", product.Count, product.Name, product.Price, totalPrice);
+
                 sumPrice += totalPrice;
             }
 
+            // Table footer
+            Console.WriteLine(new string('-', 60));
+            Console.ResetColor();
+
+            // Total sum of all products
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nSuma do zapłaty: {0:C}", sumPrice);
 
-            
+
+
             double cash = 0.0;
             do
             {
@@ -123,14 +135,27 @@ namespace Projekt
             bool close = false;
             do
             {
+                
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\n==================================");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("               MENU               ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("==================================");
                 Console.ResetColor();
-                Console.WriteLine("\nMenu:");
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("1. Pokaż najtańszy produkt");
                 Console.WriteLine("2. Pokaż najdroższy produkt");
                 Console.WriteLine("3. Pokaż liczbę wszystkich produktów");
                 Console.WriteLine("4. Pokaż produkt, którego sprzedano najwięcej");
                 Console.WriteLine("5. Pokaż produkt, którego sprzedano najmniej");
                 Console.WriteLine("6. Wyjście");
+                Console.ResetColor();
+
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("==================================");
+                Console.ResetColor();
 
                 int opcja;
                 do
