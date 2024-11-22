@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Projekt
 {
     class Program
@@ -13,7 +7,7 @@ namespace Projekt
             int productCount = 0;
             bool isCorrect = false;
 
-          
+
             do
             {
                 Console.WriteLine("Podaj liczbę produktów: ");
@@ -23,7 +17,9 @@ namespace Projekt
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red; 
                     Console.WriteLine("Błędna wartość, podaj liczbę produktów większą od 0.");
+                    Console.ResetColor(); 
                 }
             } while (!isCorrect);
 
@@ -48,7 +44,9 @@ namespace Projekt
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Błędna wartość, podaj ilość produktów większą od 0.");
+                        Console.ResetColor(); // Przywrócenie domyślnego koloru
                     }
                 } while (!isCorrect);
 
@@ -64,9 +62,12 @@ namespace Projekt
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Błędna wartość, podaj cenę produktu większą od 0.");
+                        Console.ResetColor();
                     }
                 } while (!isCorrect);
+
 
                 products[i] = product;
             }
@@ -105,17 +106,20 @@ namespace Projekt
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Red; // Ustawienie czerwonego koloru
                         Console.WriteLine("Nie stać Cię.");
+                        Console.ResetColor(); // Przywrócenie domyślnego koloru
                     }
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red; // Ustawienie czerwonego koloru
                     Console.WriteLine("Błędna wartość, podaj kwotę.");
+                    Console.ResetColor(); // Przywrócenie domyślnego koloru
                 }
             } while (true);
 
-            
+
             bool close = false;
             do
             {
@@ -138,7 +142,9 @@ namespace Projekt
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red; // Ustawienie czerwonego koloru
                         Console.WriteLine("Błędna wartość, wybierz opcję z zakresu 1-6.");
+                        Console.ResetColor(); // Przywrócenie domyślnego koloru
                     }
                 } while (true);
 
