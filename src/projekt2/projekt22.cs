@@ -46,7 +46,7 @@ namespace Projekt
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Błędna wartość, podaj ilość produktów większą od 0.");
-                        Console.ResetColor(); // Przywrócenie domyślnego koloru
+                        Console.ResetColor();
                     }
                 } while (!isCorrect);
 
@@ -106,16 +106,15 @@ namespace Projekt
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red; // Ustawienie czerwonego koloru
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Nie stać Cię.");
-                        Console.ResetColor(); // Przywrócenie domyślnego koloru
-                    }
+                        Console.ResetColor();
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red; // Ustawienie czerwonego koloru
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Błędna wartość, podaj kwotę.");
-                    Console.ResetColor(); // Przywrócenie domyślnego koloru
+                    Console.ResetColor();
                 }
             } while (true);
 
@@ -142,10 +141,9 @@ namespace Projekt
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red; // Ustawienie czerwonego koloru
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Błędna wartość, wybierz opcję z zakresu 1-6.");
-                        Console.ResetColor(); // Przywrócenie domyślnego koloru
-                    }
+                        Console.ResetColor();
                 } while (true);
 
                 switch (opcja)
