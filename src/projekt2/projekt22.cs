@@ -133,29 +133,32 @@ namespace Projekt
 
 
             bool close = false;
+           
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n==================================");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("               MENU               ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("==================================");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("1. Pokaż najtańszy produkt");
+            Console.WriteLine("2. Pokaż najdroższy produkt");
+            Console.WriteLine("3. Pokaż liczbę wszystkich produktów");
+            Console.WriteLine("4. Pokaż produkt, którego sprzedano najwięcej");
+            Console.WriteLine("5. Pokaż produkt, którego sprzedano najmniej");
+            Console.WriteLine("6. Wyjście");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("==================================");
+            Console.ResetColor();
+
             do
             {
                 
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\n==================================");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("               MENU               ");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("==================================");
-                Console.ResetColor();
-
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("1. Pokaż najtańszy produkt");
-                Console.WriteLine("2. Pokaż najdroższy produkt");
-                Console.WriteLine("3. Pokaż liczbę wszystkich produktów");
-                Console.WriteLine("4. Pokaż produkt, którego sprzedano najwięcej");
-                Console.WriteLine("5. Pokaż produkt, którego sprzedano najmniej");
-                Console.WriteLine("6. Wyjście");
-                Console.ResetColor();
-
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("==================================");
-                Console.ResetColor();
+               
 
                 int opcja;
                 do
