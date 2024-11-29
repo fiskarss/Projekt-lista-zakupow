@@ -77,7 +77,7 @@ namespace Projekt
             double sumPrice = 0;
 
             // Table header
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(new string('-', 60));
             Console.WriteLine("| {0,-5} | {1,-20} | {2,-10} | {3,-10} |", "Ilość", "Produkt", "Cena Jedn.", "Razem");
             Console.WriteLine(new string('-', 60));
@@ -180,27 +180,27 @@ namespace Projekt
                 {
                     case 1:
                         var minPriceProduct = products.OrderBy(p => p.Price).First();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"Najtańszy produkt: {minPriceProduct.Name}, cena: {minPriceProduct.Price:C}");
                         break;
                     case 2:
                         var maxPriceProduct = products.OrderByDescending(p => p.Price).First();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"Najdroższy produkt: {maxPriceProduct.Name}, cena: {maxPriceProduct.Price:C}");
                         break;
                     case 3:
                         int totalCount = products.Sum(p => p.Count);
-                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"Łączna liczba sprzedanych produktów: {totalCount}");
                         break;
                     case 4:
                         var maxSoldProduct = products.OrderByDescending(p => p.Count).First();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"Produkt, którego sprzedano najwięcej: {maxSoldProduct.Name}, ilość: {maxSoldProduct.Count}");
                         break;
                     case 5:
                         var minSoldProduct = products.OrderBy(p => p.Count).First();
-                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"Produkt, którego sprzedano najmniej: {minSoldProduct.Name}, ilość: {minSoldProduct.Count}");
                         break;
                     case 6:
