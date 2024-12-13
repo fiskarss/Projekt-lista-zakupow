@@ -182,11 +182,11 @@ namespace Projekt
                 switch (opcja)
                 {
                     case 1:
-                        var minPriceProduct = orderBy(products, false);
+                        var minPriceProduct = OrderByPrice(products);
                         Console.WriteLine($"Najtańszy produkt: {minPriceProduct.Name}, cena: {minPriceProduct.Price:C}");
                         break;
                     case 2:
-                        var maxPriceProduct = orderByDesc(products, false);
+                        var maxPriceProduct = OrderByDescPrice(products);
                         Console.WriteLine($"Najdroższy produkt: {maxPriceProduct.Name}, cena: {maxPriceProduct.Price:C}");
                         break;
                     case 3:
@@ -194,11 +194,11 @@ namespace Projekt
                         Console.WriteLine($"Łączna liczba sprzedanych produktów: {totalCount}");
                         break;
                     case 4:
-                        var maxSoldProduct = orderByDesc(products, true);
+                        var maxSoldProduct = OrderByDescCount(products);
                         Console.WriteLine($"Produkt, którego sprzedano najwięcej: {maxSoldProduct.Name}, ilość: {maxSoldProduct.Count}");
                         break;
                     case 5:
-                        var minSoldProduct = orderBy(products, true);
+                        var minSoldProduct = OrderByCount(products);
                         Console.WriteLine($"Produkt, którego sprzedano najmniej: {minSoldProduct.Name}, ilość: {minSoldProduct.Count}");
                         break;
                     case 6:
@@ -207,14 +207,23 @@ namespace Projekt
                 }
             } while (!close);
         }
-        static Product orderBy(List<Product> products, Boolean isCount)
+        static Product OrderByPrice(List<Product> products)
         {
-           return isCount == true ? products.OrderBy(p => p.Count).First() : products.OrderBy(p => p.Price).First();
+            return products.OrderBy(p => p.Price).First();
         }
 
-        static Product orderByDesc(List<Product> products, Boolean isCount)
+        static Product OrderByDescPrice(List<Product> products)
         {
-            return isCount == true ? products.OrderBy(p => p.Count).First() : products.OrderBy(p => p.Price).First();
+            return products.OrderByDescending(p => p.Price).First();
+        }
+        static Product OrderByCount(List<Product> products)
+        {
+            return products.OrderBy(p => p.Count).First();
+        }
+
+        static Product OrderByDescCount(List<Product> products)
+        {
+            return products.OrderByDescending(p => p.Count).First();
         }
     }
 }
