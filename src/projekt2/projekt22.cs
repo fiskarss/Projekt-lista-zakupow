@@ -209,27 +209,12 @@ namespace Projekt
         }
         static Product orderBy(List<Product> products, Boolean isCount)
         {
-            if(isCount)
-            {
-                return products.OrderBy(p => p.Count).First();
-
-            } else
-            {
-                return products.OrderBy(p => p.Price).First();
-            }
+           return isCount == true ? products.OrderBy(p => p.Count).First() : products.OrderBy(p => p.Price).First();
         }
 
         static Product orderByDesc(List<Product> products, Boolean isCount)
         {
-            if (isCount)
-            {
-                return products.OrderByDescending(p => p.Count).First();
-
-            }
-            else
-            {
-                return products.OrderByDescending(p => p.Price).First();
-            }
+            return isCount == true ? products.OrderBy(p => p.Count).First() : products.OrderBy(p => p.Price).First();
         }
     }
 }
