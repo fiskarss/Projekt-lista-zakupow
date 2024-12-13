@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace Projekt
 {
     class Program
@@ -23,7 +25,7 @@ namespace Projekt
                 }
             } while (!isCorrect);
 
-            Product[] products = new Product[productCount];
+            List<Product> products = new List<Product>(productCount);
 
             for (int i = 0; i < productCount; i++)
             {
@@ -69,9 +71,9 @@ namespace Projekt
                 } while (!isCorrect);
 
 
-                products[i] = product;
+                products.Add(product);
             }
-
+            Console.Clear();
 
             Console.WriteLine("\nRACHUNEK:");
             double sumPrice = 0;
@@ -176,31 +178,27 @@ namespace Projekt
                     }
                 } while (true);
 
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 switch (opcja)
                 {
                     case 1:
-                        var minPriceProduct = products.OrderBy(p => p.Price).First();
-                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        var minPriceProduct = orderBy(products, false);
                         Console.WriteLine($"Najtańszy produkt: {minPriceProduct.Name}, cena: {minPriceProduct.Price:C}");
                         break;
                     case 2:
-                        var maxPriceProduct = products.OrderByDescending(p => p.Price).First();
-                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        var maxPriceProduct = orderByDesc(products, false);
                         Console.WriteLine($"Najdroższy produkt: {maxPriceProduct.Name}, cena: {maxPriceProduct.Price:C}");
                         break;
                     case 3:
                         int totalCount = products.Sum(p => p.Count);
-                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"Łączna liczba sprzedanych produktów: {totalCount}");
                         break;
                     case 4:
-                        var maxSoldProduct = products.OrderByDescending(p => p.Count).First();
-                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        var maxSoldProduct = orderByDesc(products, true);
                         Console.WriteLine($"Produkt, którego sprzedano najwięcej: {maxSoldProduct.Name}, ilość: {maxSoldProduct.Count}");
                         break;
                     case 5:
-                        var minSoldProduct = products.OrderBy(p => p.Count).First();
-                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        var minSoldProduct = orderBy(products, true);
                         Console.WriteLine($"Produkt, którego sprzedano najmniej: {minSoldProduct.Name}, ilość: {minSoldProduct.Count}");
                         break;
                     case 6:
@@ -208,6 +206,30 @@ namespace Projekt
                         break;
                 }
             } while (!close);
+        }
+        static Product orderBy(List<Product> products, Boolean isCount)
+        {
+            if(isCount)
+            {
+                return products.OrderBy(p => p.Count).First();
+
+            } else
+            {
+                return products.OrderBy(p => p.Price).First();
+            }
+        }
+
+        static Product orderByDesc(List<Product> products, Boolean isCount)
+        {
+            if (isCount)
+            {
+                return products.OrderByDescending(p => p.Count).First();
+
+            }
+            else
+            {
+                return products.OrderByDescending(p => p.Price).First();
+            }
         }
     }
 }
